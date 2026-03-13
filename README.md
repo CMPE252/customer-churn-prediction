@@ -5,7 +5,7 @@ For reproducibility, instead of importing from Kaggle directly, a local copy of 
 
 Cahide - 1.1-1.9
 
-Jesigga - 1.10-2.3
+Jesigga - 1.10-2.3, 5.2-5.6, all of 7
 
 Annie - 2.4-2.5
 
