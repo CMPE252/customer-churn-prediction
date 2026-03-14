@@ -1,0 +1,844 @@
+## The files we should update in the code, the details about the new repo structure will be mentioned later
+
+# Guide: How to Install VS Code, Open Our GitHub Repository Locally, and Push Changes
+
+This guide explains how to set up Visual Studio Code, clone our repository to your computer, open it locally, make changes, push them to GitHub, and create a pull request.
+
+Our repository is:
+
+`https://github.com/CMPE252/customer-churn-prediction`
+
+---
+
+## 1. If Visual Studio Code is not installed on your computer, do this: install VS Code
+
+Go to the official Visual Studio Code website and download the version for your operating system:
+
+* Windows
+* macOS
+* Linux
+
+Install it like a normal application.
+
+After installation:
+
+* Open VS Code once
+* Make sure it launches correctly
+
+VS Code is the program you will use to open the project folder, edit files, and use the built-in terminal.
+
+---
+
+## 2. If Git is not installed on your computer, do this: install Git
+
+Git is required to clone the repository, create branches, commit changes, and push to GitHub.
+
+### On Windows
+
+Download and install Git for Windows.
+
+During installation:
+
+* If you are unsure, keeping the default options is usually fine
+
+### On macOS
+
+Open the Terminal app and type:
+
+```bash
+git --version
+```
+
+If Git is not installed, macOS may prompt you to install developer tools. Accept that prompt.
+
+### On Linux
+
+Install Git using your package manager.
+
+For Ubuntu/Debian:
+
+```bash
+sudo apt update
+sudo apt install git
+```
+
+After installation, check that Git works:
+
+```bash
+git --version
+```
+
+If you see a version number, Git is installed correctly.
+
+---
+
+## 3. If you have not used the terminal much before, do this: learn the only part you need here
+
+You do not need advanced terminal knowledge for this workflow. You only need to know how to:
+
+* open the terminal
+* copy and paste commands
+* press Enter to run them
+
+### On Windows
+
+You can use:
+
+* Command Prompt
+* PowerShell
+* Git Bash
+
+Git Bash is usually the easiest option if you installed Git for Windows.
+
+### On macOS
+
+Use the **Terminal** app.
+
+### On Linux
+
+Use your default **Terminal** app.
+
+When this guide tells you to run a command, it means:
+
+1. Open the terminal
+2. Paste the command
+3. Press Enter
+
+---
+
+## 4. If this is your first time setting up Git on this computer, do this: set your name and email
+
+Git uses this information to label your commits.
+
+Open a terminal and run:
+
+```bash
+git config --global user.name "Your Name"
+git config --global user.email "your_email@example.com"
+```
+
+Example:
+
+```bash
+git config --global user.name "Jane Doe"
+git config --global user.email "janedoe@gmail.com"
+```
+
+To check that it worked, run:
+
+```bash
+git config --global --list
+```
+
+You should see your name and email in the output.
+
+It is best to use the same email address you use for GitHub.
+
+---
+
+## 5. If you are not sure whether you should clone directly or fork first, do this: decide based on your access
+
+There are two possible workflows.
+
+### Option A: You are a collaborator on the repository
+
+Use this if you have permission to push branches directly to the repository.
+
+You can:
+
+* clone the repository directly
+* create a new branch
+* push your branch
+* open a pull request
+
+### Option B: You are not a collaborator on the repository
+
+Use this if you do not have permission to push to the original repository.
+
+You must:
+
+* fork the repository to your own GitHub account
+* clone your fork
+* push to your fork
+* open a pull request from your fork to the original repository
+
+If you are unsure, the easiest way to tell is this:
+
+* if pushing directly fails because of permissions, use the fork workflow
+
+---
+
+# Workflow A: If you are a collaborator, follow these steps
+
+## 6. If you have collaborator access, do this: clone the repository to your computer
+
+Choose where you want the project folder to live on your computer first.
+
+For example:
+
+* Desktop
+* Documents
+* a Projects folder
+
+Open your terminal and move to that location.
+
+### Example: move to Desktop
+
+#### Windows Git Bash
+
+```bash
+cd ~/Desktop
+```
+
+#### macOS/Linux
+
+```bash
+cd ~/Desktop
+```
+
+Now clone the repository:
+
+```bash
+git clone https://github.com/CMPE252/customer-churn-prediction.git
+```
+
+This downloads the repository to your computer.
+
+After cloning, enter the project folder:
+
+```bash
+cd customer-churn-prediction
+```
+
+To verify you are inside the project folder, run:
+
+```bash
+pwd
+```
+
+And list the files:
+
+```bash
+ls
+```
+
+You should see the project contents.
+
+---
+
+## 7. If you want to open the repository in VS Code, do this: open the folder
+
+While still inside the project folder in the terminal, run:
+
+```bash
+code .
+```
+
+This opens the current folder in VS Code.
+
+### If `code .` does not work
+
+That usually means the VS Code command-line shortcut is not enabled.
+
+In that case:
+
+1. Open VS Code manually
+2. Click **File > Open Folder**
+3. Select the `customer-churn-prediction` folder
+
+Now the project is open in VS Code.
+
+---
+
+## 8. If you have opened the repository in VS Code, do this: locate the main areas of the interface
+
+Inside VS Code:
+
+* The **left sidebar** shows files and folders
+* The **main area** opens files for editing
+* The **Terminal** can be opened from the top menu:
+
+  * **Terminal > New Terminal**
+
+Open the built-in terminal in VS Code now.
+
+That terminal will usually start inside your project folder.
+
+---
+
+## 9. If you want to confirm Git recognizes the repository correctly, do this: run status
+
+In the VS Code terminal, run:
+
+```bash
+git status
+```
+
+If everything is set up correctly, Git will say you are on a branch and the working tree is clean.
+
+---
+
+## 10. If you are about to start working on a task, do this: create your own branch
+
+Do not work directly on `main` unless your team specifically wants that workflow.
+
+Create a new branch:
+
+```bash
+git checkout -b your-branch-name
+```
+
+Example:
+
+```bash
+git checkout -b fix-readme-jade
+```
+
+This creates a new branch and switches to it.
+
+To verify your branch, run:
+
+```bash
+git branch
+```
+
+The current branch will have a `*` next to it.
+
+---
+
+## 11. If you want to make changes, do this: edit files in VS Code
+
+Now edit the files you need.
+
+Examples:
+
+* update `README.md`
+* edit a notebook
+* modify files inside the project folders
+
+Save your changes after editing:
+
+* Windows/Linux: `Ctrl + S`
+* macOS: `Cmd + S`
+
+---
+
+## 12. If you finished editing and want to see what changed, do this: check Git status
+
+Run:
+
+```bash
+git status
+```
+
+Git will show which files were changed.
+
+---
+
+## 13. If you are ready to include your changes in a commit, do this: stage the files
+
+To stage all changed files:
+
+```bash
+git add .
+```
+
+If you only want to stage one specific file:
+
+```bash
+git add filename
+```
+
+Example:
+
+```bash
+git add README.md
+```
+
+Then check again:
+
+```bash
+git status
+```
+
+Files that are staged will appear under something like “Changes to be committed”.
+
+---
+
+## 14. If your changes are staged and you want to save them in project history, do this: commit
+
+Commit your changes with a message:
+
+```bash
+git commit -m "Write a clear description of what you changed"
+```
+
+Example:
+
+```bash
+git commit -m "Update README instructions for dataset usage"
+```
+
+A commit saves a checkpoint in the project history.
+
+---
+
+## 15. If you want your branch to appear on GitHub, do this: push your branch
+
+Run:
+
+```bash
+git push -u origin your-branch-name
+```
+
+Example:
+
+```bash
+git push -u origin fix-readme-jade
+```
+
+The `-u` option helps Git remember the connection between your local branch and the remote branch.
+
+If Git asks you to sign in:
+
+* follow the login instructions
+* on some systems, a browser window will open
+* complete the authentication steps
+
+---
+
+## 16. If your branch is pushed and you want your team to review your work, do this: open a pull request
+
+Go to the repository on GitHub.
+
+GitHub often shows a button like:
+
+* **Compare & pull request**
+
+Click it.
+
+Then:
+
+1. Make sure the base repository is the original repo
+2. Make sure the base branch is usually `main`
+3. Make sure the compare branch is your branch
+4. Add a title
+5. Add a short description of what you changed
+6. Click **Create pull request**
+
+Done.
+
+---
+
+# Workflow B: If you are not a collaborator, follow these steps
+
+## 17. If you do not have direct push access, do this first: fork the repository
+
+Go to:
+
+`https://github.com/CMPE252/customer-churn-prediction`
+
+Click the **Fork** button on GitHub.
+
+This creates your own copy of the repository under your GitHub account.
+
+After forking, your fork will look like:
+
+```text
+https://github.com/YOUR-USERNAME/customer-churn-prediction
+```
+
+---
+
+## 18. If you created a fork, do this: clone your fork instead of the original repository
+
+Open the terminal and move to the folder where you want the project.
+
+Then run:
+
+```bash
+git clone https://github.com/YOUR-USERNAME/customer-churn-prediction.git
+```
+
+Enter the folder:
+
+```bash
+cd customer-churn-prediction
+```
+
+Open it in VS Code:
+
+```bash
+code .
+```
+
+If that does not work, open the folder manually in VS Code.
+
+---
+
+## 19. If you forked the repository, do this: connect the original repository as `upstream`
+
+This lets you pull the latest changes from the original repository later.
+
+Run:
+
+```bash
+git remote add upstream https://github.com/CMPE252/customer-churn-prediction.git
+```
+
+Now verify your remotes:
+
+```bash
+git remote -v
+```
+
+You should see:
+
+* `origin` pointing to your fork
+* `upstream` pointing to the original repository
+
+---
+
+## 20. If you are starting work in your fork, do this: create a branch
+
+Run:
+
+```bash
+git checkout -b your-branch-name
+```
+
+Example:
+
+```bash
+git checkout -b add-notebook-notes
+```
+
+---
+
+## 21. If you made changes in your fork, do this: stage and commit them
+
+Stage all changes:
+
+```bash
+git add .
+```
+
+Commit them:
+
+```bash
+git commit -m "Describe your changes clearly"
+```
+
+Example:
+
+```bash
+git commit -m "Clean notebook comments and improve documentation"
+```
+
+---
+
+## 22. If you want your changes on GitHub, do this: push to your fork
+
+Run:
+
+```bash
+git push -u origin your-branch-name
+```
+
+Example:
+
+```bash
+git push -u origin add-notebook-notes
+```
+
+This pushes the branch to your fork, not the original repository.
+
+---
+
+## 23. If your branch is on your fork and you want the original repository to review it, do this: open a pull request
+
+Go to your fork on GitHub.
+
+GitHub will usually show a **Compare & pull request** button.
+
+Click it.
+
+Then make sure:
+
+* the **base repository** is `CMPE252/customer-churn-prediction`
+* the **base branch** is `main`
+* the **head repository** is your fork
+* the **compare branch** is your branch
+
+Add a title and description, then create the pull request.
+
+---
+
+# Keeping your local repository up to date
+
+## 24. If you already cloned the project before and want the latest changes from GitHub, do this: pull the latest version
+
+### If you cloned the original repository directly
+
+Switch to `main`:
+
+```bash
+git checkout main
+```
+
+Pull the latest changes:
+
+```bash
+git pull origin main
+```
+
+### If you are using a fork
+
+First get the latest changes from the original repository:
+
+```bash
+git checkout main
+git pull upstream main
+```
+
+Then push those updates to your fork if needed:
+
+```bash
+git push origin main
+```
+
+This keeps your fork synchronized.
+
+---
+
+# Recommended workflow each time you work
+
+## 25. If you are starting a new task later, do this in order
+
+1. Open VS Code
+2. Open the project folder
+3. Open the terminal in VS Code
+4. Go to `main`
+
+```bash
+git checkout main
+```
+
+5. Pull the latest changes
+
+For direct clone:
+
+```bash
+git pull origin main
+```
+
+For fork workflow:
+
+```bash
+git pull upstream main
+```
+
+6. Create a new branch
+
+```bash
+git checkout -b new-branch-name
+```
+
+7. Make changes
+8. Save files
+9. Check status
+
+```bash
+git status
+```
+
+10. Stage changes
+
+```bash
+git add .
+```
+
+11. Commit
+
+```bash
+git commit -m "Your commit message"
+```
+
+12. Push
+
+```bash
+git push -u origin new-branch-name
+```
+
+13. Open a pull request on GitHub
+
+---
+
+# Common problems and how to fix them
+
+## 26. If the terminal says `git: command not found`, do this: install Git properly
+
+Git is not installed, or your system cannot find it.
+
+Fix:
+
+* install Git
+* close and reopen the terminal
+* run:
+
+```bash
+git --version
+```
+
+again
+
+---
+
+## 27. If the terminal says `code: command not found`, do this: open the folder manually in VS Code
+
+Use:
+
+* **File > Open Folder**
+
+Or enable the VS Code command-line tool later.
+
+---
+
+## 28. If Git says you do not have permission to push, do this: use the fork workflow
+
+That usually means:
+
+* you are not a collaborator
+* you cannot push directly to the original repository
+
+Fix:
+
+* fork the repository
+* clone your fork
+* push to your fork
+* open a pull request from your fork
+
+---
+
+## 29. If Git says there is nothing to commit, do this: check whether you saved the file
+
+Possible reasons:
+
+* the file was not saved
+* a different file was edited
+* the file is ignored by `.gitignore`
+
+Run:
+
+```bash
+git status
+```
+
+and check what Git sees.
+
+---
+
+## 30. If Git says you are not on the correct branch, do this: switch branches
+
+Run:
+
+```bash
+git branch
+```
+
+Then switch if needed:
+
+```bash
+git checkout your-branch-name
+```
+
+---
+
+## 31. If a pull request includes too many unrelated changes, do this next time: always create a new branch before editing
+
+Best practice:
+
+* update `main`
+* create a fresh branch
+* make only one task’s changes in that branch
+
+---
+
+# Minimum commands to remember
+
+## 32. If you only want a short command list, use this
+
+Clone repository:
+
+```bash
+git clone https://github.com/CMPE252/customer-churn-prediction.git
+```
+
+Enter folder:
+
+```bash
+cd customer-churn-prediction
+```
+
+Open in VS Code:
+
+```bash
+code .
+```
+
+Check status:
+
+```bash
+git status
+```
+
+Create branch:
+
+```bash
+git checkout -b your-branch-name
+```
+
+Stage changes:
+
+```bash
+git add .
+```
+
+Commit:
+
+```bash
+git commit -m "Your message"
+```
+
+Push:
+
+```bash
+git push -u origin your-branch-name
+```
+
+Pull latest changes:
+
+```bash
+git pull origin main
+```
+
+---
+
+# Final note
+
+## 33. If you want the simplest path through the process, do this sequence
+
+1. Install VS Code
+2. Install Git
+3. Configure Git name and email
+4. Clone the repository
+5. Open it in VS Code
+6. Create a branch
+7. Make changes
+8. Commit
+9. Push
+10. Open a pull request
+
+---
+
+İstersen bunu şimdi bir de daha temiz, profesyonel bir **GitHub README.md formatında** düzenleyeyim.
