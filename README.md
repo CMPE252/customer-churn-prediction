@@ -2,10 +2,29 @@
 
 An end-to-end machine learning pipeline for predicting customer churn risk. The project covers data cleaning, exploratory data analysis, feature engineering, model training, hyperparameter tuning, and final evaluation.
 
+## Setup
+
+```bash
+python -m venv .venv
+.venv\Scripts\activate      # Windows
+# source .venv/bin/activate  # macOS / Linux
+pip install -r requirements.txt
+```
+
+## Usage
+
+Run the full pipeline from the project root:
+
+```bash
+python main.py
+```
+
+All charts are saved to `outputs/` and the full console log is written to `outputs/output_logs.txt`.
+
 ## Project Structure
 
 ```
-cahide_AI/
+customer-churn-prediction
 ├── main.py                  # Pipeline entry point
 ├── requirements.txt         # pip dependencies
 ├── .gitignore
@@ -52,24 +71,6 @@ cahide_AI/
 - XGBoost
 - Multi-Layer Perceptron (Neural Network)
 
-## Setup
-
-```bash
-python -m venv .venv
-.venv\Scripts\activate      # Windows
-# source .venv/bin/activate  # macOS / Linux
-pip install -r requirements.txt
-```
-
-## Usage
-
-Run the full pipeline from the project root:
-
-```bash
-python main.py
-```
-
-All charts are saved to `outputs/` and the full console log is written to `outputs/output_logs.txt`.
 
 ## Dataset
 
