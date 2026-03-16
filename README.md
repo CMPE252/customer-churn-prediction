@@ -20,6 +20,7 @@ python main.py
 ```
 
 All charts are saved to `outputs/` and the full console log is written to `outputs/output_logs.txt`.
+The Google Colab notebook is located in notebook folder to review the building process.
 
 ## Project Structure
 
@@ -48,18 +49,18 @@ customer-churn-prediction
 
 ## Pipeline Steps
 
-| Step | Description |
-|------|-------------|
+| Step    | Description                                                                                    |
+| ------- | ---------------------------------------------------------------------------------------------- |
 | 1.1–1.9 | Data loading, duplicate check, train/valid/test split, missing value handling, outlier capping |
-| 1.10 | Datetime feature extraction, label encoding, one-hot encoding |
-| 2.1–2.3 | Target distribution, descriptive statistics, numerical & categorical distributions |
-| 2.4–2.5 | Churn vs non-churn comparison, correlation analysis |
-| 3 | Tenure, recency, frequency, RFM, offer-discount features, scaling |
-| 4 | Constant/low-variance removal, L1 selection, RF importance, dataset variants |
-| 5 | Logistic Regression, Naive Bayes, KNN, Random Forest, AdaBoost, XGBoost, MLP |
-| 6 | Side-by-side model comparison on validation set |
-| 7 | RandomizedSearchCV (RF, XGB) and GridSearchCV (LR) |
-| 8–10 | Threshold optimization, refit on train+valid, test evaluation, interpretation plots |
+| 1.10    | Datetime feature extraction, label encoding, one-hot encoding                                  |
+| 2.1–2.3 | Target distribution, descriptive statistics, numerical & categorical distributions             |
+| 2.4–2.5 | Churn vs non-churn comparison, correlation analysis                                            |
+| 3       | Tenure, recency, frequency, RFM, offer-discount features, scaling                              |
+| 4       | Constant/low-variance removal, L1 selection, RF importance, dataset variants                   |
+| 5       | Logistic Regression, Naive Bayes, KNN, Random Forest, AdaBoost, XGBoost, MLP                   |
+| 6       | Side-by-side model comparison on validation set                                                |
+| 7       | RandomizedSearchCV (RF, XGB) and GridSearchCV (LR)                                             |
+| 8–10    | Threshold optimization, refit on train+valid, test evaluation, interpretation plots            |
 
 ## Models
 
@@ -70,7 +71,6 @@ customer-churn-prediction
 - AdaBoost
 - XGBoost
 - Multi-Layer Perceptron (Neural Network)
-
 
 ## Dataset
 

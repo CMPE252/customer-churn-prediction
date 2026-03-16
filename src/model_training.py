@@ -32,16 +32,6 @@ def evaluate_one_model_across_datasets(model, train_sets, valid_sets, y_train, y
         })
     return pd.DataFrame(results).sort_values(["roc_auc", "f1"], ascending=False)
 
-
-# 5.1 Logistic Regression (Baseline Model)
-def train_logistic_regression(train_sets, valid_sets, y_train, y_valid):
-    logistic_model = LogisticRegression(penalty="l2", C=1.0, solver="liblinear", max_iter=2000)
-    results = evaluate_one_model_across_datasets(logistic_model, train_sets, valid_sets, y_train, y_valid)
-    print("\nLogistic Regression Results")
-    print(results)
-    print("\n[train_logistic_regression] Logistic Regression training completed.")
-    return logistic_model, results
-
 # 5.1 Logistic Regression (Baseline Model)
 def train_logistic_regression(train_sets, valid_sets, y_train, y_valid):
     logistic_model = LogisticRegression(penalty="l2", C=1.0, solver="liblinear", max_iter=2000)
