@@ -4,6 +4,3 @@
 # Python cache
 __pycache__/
 .ipynb_checkpoints/
-
-# Ignore all output data (charts, logs, etc.)
-outputs/
